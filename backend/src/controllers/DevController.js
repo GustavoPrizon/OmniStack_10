@@ -1,5 +1,6 @@
 const axios = require('axios');
 const Dev = require('../models/Dev');
+const StringAsArray = require('../util/parseStringAsArray');
 
 
 module.exports = {
@@ -19,7 +20,7 @@ module.exports = {
   
       const { name = login, avatar_url, bio  } = response.data;
     
-      const techsArray = techs.split(',').map(tech => tech.trim());
+      const techsArray = StringAsArray(techs);
       //trim remove espaço antes e depois
     
       const location = {
